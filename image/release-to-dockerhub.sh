@@ -1,9 +1,9 @@
 set -ex
 # SET THE FOLLOWING VARIABLES
 # docker hub username
-USERNAME=hollie
+USERNAME=runerb
 # image name
-IMAGE=tailscale-caddy-proxy
+IMAGE=tailscale-pihole-proxy
 # platforms
 PLATFORM=linux/arm64,linux/amd64,linux/arm/v7
 # bump version
@@ -14,8 +14,8 @@ echo "Building version: $version"
 docker buildx build --platform $PLATFORM -t $USERNAME/$IMAGE:latest -t $USERNAME/$IMAGE:$version --push .
 # tag it
 git add -A
-git commit -m "Tailscale-Caddy-proxy version $version"
-git tag -a "dockerhub-$version" -m "Tailscale-Caddy-proxy version $version"
+git commit -m "Tailscale-Pihole-proxy version $version"
+git tag -a "dockerhub-$version" -m "Tailscale-Pihole-proxy version $version"
 git push
 git push --tags
 

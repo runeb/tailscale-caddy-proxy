@@ -9,6 +9,10 @@ echo "Building Caddy configfile"
 echo $TS_HOSTNAME'.'$TS_TAILNET.'ts.net' > /etc/caddy/Caddyfile
 echo 'reverse_proxy' $CADDY_TARGET >> /etc/caddy/Caddyfile
 
+echo "Starting dnsmasq"
+echo "server=/${DNS_SERVER_IP}" > /etc/dnsmasq.conf
+dnsmasq --no-daemon &
+
 echo "Starting Caddy"
 caddy start --config /etc/caddy/Caddyfile
 
