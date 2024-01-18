@@ -1,4 +1,4 @@
-ARG TAILSCALE_VERSION=v1.54.1
+ARG TAILSCALE_VERSION=stable
 
 FROM tailscale/tailscale:$TAILSCALE_VERSION
 LABEL maintainer="rbotten@gmail.com"
